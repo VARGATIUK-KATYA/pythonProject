@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.8.10 on linux)" generated="20211021 11:22:08.059" rpa="false" schemaversion="2">
+<suite id="s1" name="Statusy" source="/home/kate/PycharmProjects/pythonProject2/test/statusy.robot">
+<kw name="Open Browser Chrome in headless_mode" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${main_page_4242}</arg>
+<arg>${BROWSER_headless}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211021 11:22:08.244" level="INFO">Opening browser 'headlesschrome' to base url 'http://185.25.116.133:4242/'.</msg>
+<status status="PASS" starttime="20211021 11:22:08.244" endtime="20211021 11:22:10.318"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:10.319" endtime="20211021 11:22:10.444"/>
+</kw>
+<status status="PASS" starttime="20211021 11:22:08.243" endtime="20211021 11:22:10.445"/>
+</kw>
+<test id="s1-t1" name="TC1Compare auction search status results unsuccessful on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_auction.search_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:10.450" level="INFO">Opening url 'http://185.25.116.133:4242/auction/search'</msg>
+<status status="PASS" starttime="20211021 11:22:10.449" endtime="20211021 11:22:10.873"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:10.874" endtime="20211021 11:22:10.932"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:10.932" endtime="20211021 11:22:10.964"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:10.991" level="INFO">${znaideno value from 4242} = Знайдено: 412 485</msg>
+<status status="PASS" starttime="20211021 11:22:10.965" endtime="20211021 11:22:10.991"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:10.992" level="INFO">Знайдено: 412 485</msg>
+<status status="PASS" starttime="20211021 11:22:10.992" endtime="20211021 11:22:10.992"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_auction.search_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:10.992" level="INFO">Opening url 'https://prozorro.sale/auction/search'</msg>
+<status status="PASS" starttime="20211021 11:22:10.992" endtime="20211021 11:22:11.853"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:11.853" endtime="20211021 11:22:11.876"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:11.876" endtime="20211021 11:22:11.911"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:11.928" level="INFO">${znaideno value from prod} = Знайдено: 413 559</msg>
+<status status="PASS" starttime="20211021 11:22:11.911" endtime="20211021 11:22:11.928"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:11.928" level="INFO">Знайдено: 413 559</msg>
+<status status="PASS" starttime="20211021 11:22:11.928" endtime="20211021 11:22:11.928"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:11.938" level="INFO">https://prozorro.sale/auction/search</msg>
+<status status="PASS" starttime="20211021 11:22:11.929" endtime="20211021 11:22:11.938"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусзагальна кількість аукціонів</doc>
+<tag>пошук позагальна кількості</tag>
+<status status="PASS" starttime="20211021 11:22:10.445" endtime="20211021 11:22:11.938"/>
+</test>
+<test id="s1-t2" name="TC2 Compare search status results active.auction on http://185.25.116.133:4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.auction_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:11.939" level="INFO">Opening url 'http://185.25.116.133:4242/?offset=10&amp;status=active.auction'</msg>
+<status status="PASS" starttime="20211021 11:22:11.939" endtime="20211021 11:22:12.861"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:12.861" endtime="20211021 11:22:12.980"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:13.013" level="INFO">${znaideno value from 4242} = Знайдено: 32</msg>
+<status status="PASS" starttime="20211021 11:22:12.981" endtime="20211021 11:22:13.013"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:13.014" level="INFO">Знайдено: 32</msg>
+<status status="PASS" starttime="20211021 11:22:13.013" endtime="20211021 11:22:13.014"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.auction_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:13.014" level="INFO">Opening url 'https://prozorro.sale/?offset=10&amp;status=active.auction'</msg>
+<status status="PASS" starttime="20211021 11:22:13.014" endtime="20211021 11:22:14.166"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:14.166" endtime="20211021 11:22:14.174"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:14.174" endtime="20211021 11:22:14.209"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:14.229" level="INFO">${znaideno value from prod} = Знайдено: 124</msg>
+<status status="PASS" starttime="20211021 11:22:14.209" endtime="20211021 11:22:14.229"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:14.230" level="INFO">Знайдено: 124</msg>
+<status status="PASS" starttime="20211021 11:22:14.229" endtime="20211021 11:22:14.230"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:14.233" level="INFO">https://prozorro.sale/?offset=10&amp;status=active.auction</msg>
+<status status="PASS" starttime="20211021 11:22:14.230" endtime="20211021 11:22:14.234"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:14.235" level="FAIL">Знайдено: 32 != Знайдено: 124</msg>
+<status status="FAIL" starttime="20211021 11:22:14.234" endtime="20211021 11:22:14.235"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Аукціон</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:11.938" endtime="20211021 11:22:14.238">Знайдено: 32 != Знайдено: 124</status>
+</test>
+<test id="s1-t3" name="TC3 Compare search status results active.tendering on http://185.25.116.133:4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active_tendering_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:14.239" level="INFO">Opening url 'http://185.25.116.133:4242/?offset=10&amp;status=active.tendering'</msg>
+<status status="PASS" starttime="20211021 11:22:14.239" endtime="20211021 11:22:15.113"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:15.113" endtime="20211021 11:22:15.229"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:15.268" level="INFO">${znaideno value from 4242} = Знайдено: 4 651</msg>
+<status status="PASS" starttime="20211021 11:22:15.230" endtime="20211021 11:22:15.268"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:15.269" level="INFO">Знайдено: 4 651</msg>
+<status status="PASS" starttime="20211021 11:22:15.269" endtime="20211021 11:22:15.269"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active_tendering_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:15.269" level="INFO">Opening url 'https://prozorro.sale/?status=active.tendering'</msg>
+<status status="PASS" starttime="20211021 11:22:15.269" endtime="20211021 11:22:16.121"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:16.121" endtime="20211021 11:22:16.125"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:16.125" endtime="20211021 11:22:16.349"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:16.377" level="INFO">${znaideno value from prod} = Знайдено: 4 248</msg>
+<status status="PASS" starttime="20211021 11:22:16.349" endtime="20211021 11:22:16.377"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:16.378" level="INFO">Знайдено: 4 248</msg>
+<status status="PASS" starttime="20211021 11:22:16.377" endtime="20211021 11:22:16.378"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:16.386" level="INFO">https://prozorro.sale/?status=active.tendering</msg>
+<status status="PASS" starttime="20211021 11:22:16.378" endtime="20211021 11:22:16.386"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:16.387" level="FAIL">Знайдено: 4 651 != Знайдено: 4 248</msg>
+<status status="FAIL" starttime="20211021 11:22:16.386" endtime="20211021 11:22:16.387"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Прийняття заяв на участь</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:14.238" endtime="20211021 11:22:16.387">Знайдено: 4 651 != Знайдено: 4 248</status>
+</test>
+<test id="s1-t4" name="TC4">
+<kw name="Compare search status results active.enquiry on dev/4242 and https://prozorro.sale">
+<msg timestamp="20211021 11:22:16.391" level="FAIL">No keyword with name 'Compare search status results active.enquiry on dev/4242 and https://prozorro.sale' found.</msg>
+<status status="FAIL" starttime="20211021 11:22:16.391" endtime="20211021 11:22:16.391"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.enquiry_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.391" endtime="20211021 11:22:16.391"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.391" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.enquiry_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.392"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.392" endtime="20211021 11:22:16.393"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.393" endtime="20211021 11:22:16.393"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.393" endtime="20211021 11:22:16.393"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:16.393" endtime="20211021 11:22:16.393"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Період уточнень</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:16.388" endtime="20211021 11:22:16.393">No keyword with name 'Compare search status results active.enquiry on dev/4242 and https://prozorro.sale' found.</status>
+</test>
+<test id="s1-t5" name="TC5 Compare search status results active.rectification on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.rectification_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:16.394" level="INFO">Opening url 'http://185.25.116.133:4242/?offset=10&amp;status=active.rectification'</msg>
+<status status="PASS" starttime="20211021 11:22:16.394" endtime="20211021 11:22:17.275"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:17.275" endtime="20211021 11:22:17.388"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:17.389" endtime="20211021 11:22:17.425"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:17.452" level="INFO">${znaideno value from 4242} = Знайдено: 374</msg>
+<status status="PASS" starttime="20211021 11:22:17.426" endtime="20211021 11:22:17.452"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:17.452" level="INFO">Знайдено: 374</msg>
+<status status="PASS" starttime="20211021 11:22:17.452" endtime="20211021 11:22:17.452"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.rectification_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:17.452" level="INFO">Opening url 'https://prozorro.sale/?offset=10&amp;status=active.rectification'</msg>
+<status status="PASS" starttime="20211021 11:22:17.452" endtime="20211021 11:22:18.594"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:18.595" endtime="20211021 11:22:18.597"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:18.597" endtime="20211021 11:22:18.628"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:18.646" level="INFO">${znaideno value from prod} = Знайдено: 313</msg>
+<status status="PASS" starttime="20211021 11:22:18.629" endtime="20211021 11:22:18.646"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:18.646" level="INFO">Знайдено: 313</msg>
+<status status="PASS" starttime="20211021 11:22:18.646" endtime="20211021 11:22:18.646"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:18.650" level="INFO">https://prozorro.sale/?offset=10&amp;status=active.rectification</msg>
+<status status="PASS" starttime="20211021 11:22:18.646" endtime="20211021 11:22:18.650"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:18.651" level="FAIL">Знайдено: 374 != Знайдено: 313</msg>
+<status status="FAIL" starttime="20211021 11:22:18.650" endtime="20211021 11:22:18.651"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Період редагування</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:16.394" endtime="20211021 11:22:18.651">Знайдено: 374 != Знайдено: 313</status>
+</test>
+<test id="s1-t6" name="TC6 Compare search status results active.qualification on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.qualification_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:18.653" level="INFO">Opening url 'http://185.25.116.133:4242/?offset=10&amp;status=active.qualification'</msg>
+<status status="PASS" starttime="20211021 11:22:18.652" endtime="20211021 11:22:19.609"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:19.610" endtime="20211021 11:22:19.683"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:19.684" endtime="20211021 11:22:19.730"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:19.749" level="INFO">${znaideno value from 4242} = Знайдено: 1 194</msg>
+<status status="PASS" starttime="20211021 11:22:19.732" endtime="20211021 11:22:19.749"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:19.750" level="INFO">Знайдено: 1 194</msg>
+<status status="PASS" starttime="20211021 11:22:19.750" endtime="20211021 11:22:19.750"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.qualification_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:19.750" level="INFO">Opening url 'https://prozorro.sale/?status=active.qualification&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:19.750" endtime="20211021 11:22:20.595"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:20.596" endtime="20211021 11:22:20.598"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:20.598" endtime="20211021 11:22:20.823"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:20.848" level="INFO">${znaideno value from prod} = Знайдено: 1 319</msg>
+<status status="PASS" starttime="20211021 11:22:20.823" endtime="20211021 11:22:20.848"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:20.848" level="INFO">Знайдено: 1 319</msg>
+<status status="PASS" starttime="20211021 11:22:20.848" endtime="20211021 11:22:20.848"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:20.852" level="INFO">https://prozorro.sale/?status=active.qualification&amp;offset=10</msg>
+<status status="PASS" starttime="20211021 11:22:20.849" endtime="20211021 11:22:20.852"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:20.853" level="FAIL">Знайдено: 1 194 != Знайдено: 1 319</msg>
+<status status="FAIL" starttime="20211021 11:22:20.852" endtime="20211021 11:22:20.853"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Очікується публікація протоколу</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:18.652" endtime="20211021 11:22:20.854">Знайдено: 1 194 != Знайдено: 1 319</status>
+</test>
+<test id="s1-t7" name="TC7 Compare search status results active.awarded on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.awarded_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:20.855" level="INFO">Opening url 'http://185.25.116.133:4242/?offset=10&amp;status=active.awarded'</msg>
+<status status="PASS" starttime="20211021 11:22:20.855" endtime="20211021 11:22:21.834"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:21.834" endtime="20211021 11:22:21.947"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:21.948" endtime="20211021 11:22:21.983"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:22.015" level="INFO">${znaideno value from 4242} = Знайдено: 2 094</msg>
+<status status="PASS" starttime="20211021 11:22:21.983" endtime="20211021 11:22:22.015"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:22.015" level="INFO">Знайдено: 2 094</msg>
+<status status="PASS" starttime="20211021 11:22:22.015" endtime="20211021 11:22:22.015"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_active.awarded_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:22.015" level="INFO">Opening url 'https://prozorro.sale/?status=active.awarded&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:22.015" endtime="20211021 11:22:23.023"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:23.023" endtime="20211021 11:22:23.046"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:23.046" endtime="20211021 11:22:23.072"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:23.094" level="INFO">${znaideno value from prod} = Знайдено: 2 122</msg>
+<status status="PASS" starttime="20211021 11:22:23.073" endtime="20211021 11:22:23.094"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:23.096" level="INFO">Знайдено: 2 122</msg>
+<status status="PASS" starttime="20211021 11:22:23.096" endtime="20211021 11:22:23.096"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:23.102" level="INFO">https://prozorro.sale/?status=active.awarded&amp;offset=10</msg>
+<status status="PASS" starttime="20211021 11:22:23.099" endtime="20211021 11:22:23.103"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:23.103" level="FAIL">Знайдено: 2 094 != Знайдено: 2 122</msg>
+<status status="FAIL" starttime="20211021 11:22:23.103" endtime="20211021 11:22:23.103"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Очікується публікація договору</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:20.854" endtime="20211021 11:22:23.104">Знайдено: 2 094 != Знайдено: 2 122</status>
+</test>
+<test id="s1-t8" name="TC8 Compare search status results pending_admissions on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_pending.admission_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:23.106" level="INFO">Opening url 'http://185.25.116.133:4242/?status=pending.admission&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:23.106" endtime="20211021 11:22:23.951"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:23.951" endtime="20211021 11:22:24.036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:24.037" endtime="20211021 11:22:24.065"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:24.095" level="INFO">${znaideno value from 4242} = Знайдено: 1</msg>
+<status status="PASS" starttime="20211021 11:22:24.065" endtime="20211021 11:22:24.095"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:24.095" level="INFO">Знайдено: 1</msg>
+<status status="PASS" starttime="20211021 11:22:24.095" endtime="20211021 11:22:24.095"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_pending_admission_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:24.096" level="INFO">Opening url 'https://prozorro.sale/?status=pending.admission&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:24.095" endtime="20211021 11:22:25.016"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:25.016" endtime="20211021 11:22:25.052"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:25.052" endtime="20211021 11:22:25.083"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:25.110" level="INFO">${znaideno value from prod} = Знайдено: 1</msg>
+<status status="PASS" starttime="20211021 11:22:25.083" endtime="20211021 11:22:25.110"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:25.110" level="INFO">Знайдено: 1</msg>
+<status status="PASS" starttime="20211021 11:22:25.110" endtime="20211021 11:22:25.110"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:25.120" level="INFO">https://prozorro.sale/?status=pending.admission&amp;offset=10</msg>
+<status status="PASS" starttime="20211021 11:22:25.111" endtime="20211021 11:22:25.120"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211021 11:22:25.121" endtime="20211021 11:22:25.121"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Очікується рішення про викуп</doc>
+<tag>пошук по статусам</tag>
+<status status="PASS" starttime="20211021 11:22:23.105" endtime="20211021 11:22:25.121"/>
+</test>
+<test id="s1-t9" name="TC9 Compare search status results complete on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_complete_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:25.123" level="INFO">Opening url 'http://185.25.116.133:4242/?status=complete&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:25.122" endtime="20211021 11:22:26.162"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:26.162" endtime="20211021 11:22:26.273"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:26.273" endtime="20211021 11:22:26.309"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:26.337" level="INFO">${znaideno value from 4242} = Знайдено: 59 775</msg>
+<status status="PASS" starttime="20211021 11:22:26.310" endtime="20211021 11:22:26.338"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:26.338" level="INFO">Знайдено: 59 775</msg>
+<status status="PASS" starttime="20211021 11:22:26.338" endtime="20211021 11:22:26.338"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_complete_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:26.339" level="INFO">Opening url 'https://prozorro.sale/?status=complete&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:26.338" endtime="20211021 11:22:27.416"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:27.416" endtime="20211021 11:22:27.419"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:27.419" endtime="20211021 11:22:27.451"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:27.467" level="INFO">${znaideno value from prod} = Знайдено: 60 167</msg>
+<status status="PASS" starttime="20211021 11:22:27.451" endtime="20211021 11:22:27.467"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:27.468" level="INFO">Знайдено: 60 167</msg>
+<status status="PASS" starttime="20211021 11:22:27.467" endtime="20211021 11:22:27.468"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:27.476" level="INFO">https://prozorro.sale/?status=complete&amp;offset=10</msg>
+<status status="PASS" starttime="20211021 11:22:27.468" endtime="20211021 11:22:27.476"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:27.477" level="FAIL">Знайдено: 59 775 != Знайдено: 60 167</msg>
+<status status="FAIL" starttime="20211021 11:22:27.476" endtime="20211021 11:22:27.477"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Аукціон завершено. Договір підписано</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:25.122" endtime="20211021 11:22:27.478">Знайдено: 59 775 != Знайдено: 60 167</status>
+</test>
+<test id="s1-t10" name="TC10 Compare search status results cancelled on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_cancelled_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:27.479" level="INFO">Opening url 'http://185.25.116.133:4242/?status=cancelled&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:27.479" endtime="20211021 11:22:28.427"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:28.427" endtime="20211021 11:22:28.521"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:28.521" endtime="20211021 11:22:28.586"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:28.617" level="INFO">${znaideno value from 4242} = Знайдено: 12 403</msg>
+<status status="PASS" starttime="20211021 11:22:28.586" endtime="20211021 11:22:28.617"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:28.618" level="INFO">Знайдено: 12 403</msg>
+<status status="PASS" starttime="20211021 11:22:28.618" endtime="20211021 11:22:28.618"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_cancelled_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:28.618" level="INFO">Opening url 'https://prozorro.sale/?status=cancelled&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:28.618" endtime="20211021 11:22:29.467"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:29.468" endtime="20211021 11:22:29.472"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:29.472" endtime="20211021 11:22:29.698"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:29.725" level="INFO">${znaideno value from prod} = Знайдено: 12 470</msg>
+<status status="PASS" starttime="20211021 11:22:29.698" endtime="20211021 11:22:29.725"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:29.725" level="INFO">Знайдено: 12 470</msg>
+<status status="PASS" starttime="20211021 11:22:29.725" endtime="20211021 11:22:29.726"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:29.733" level="INFO">https://prozorro.sale/?status=cancelled&amp;offset=10</msg>
+<status status="PASS" starttime="20211021 11:22:29.726" endtime="20211021 11:22:29.734"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:29.734" level="FAIL">Знайдено: 12 403 != Знайдено: 12 470</msg>
+<status status="FAIL" starttime="20211021 11:22:29.734" endtime="20211021 11:22:29.734"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Аукціон скасовано</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:27.478" endtime="20211021 11:22:29.735">Знайдено: 12 403 != Знайдено: 12 470</status>
+</test>
+<test id="s1-t11" name="TC11 Compare auction search status results unsuccessful on dev/4242 and https://prozorro.sale">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_unsuccessful_4242}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:29.736" level="INFO">Opening url 'http://185.25.116.133:4242/?status=unsuccessful&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:29.736" endtime="20211021 11:22:30.644"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:30.644" endtime="20211021 11:22:30.749"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:30.749" endtime="20211021 11:22:30.781"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from 4242}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:30.811" level="INFO">${znaideno value from 4242} = Знайдено: 331 945</msg>
+<status status="PASS" starttime="20211021 11:22:30.781" endtime="20211021 11:22:30.811"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:30.811" level="INFO">Знайдено: 331 945</msg>
+<status status="PASS" starttime="20211021 11:22:30.811" endtime="20211021 11:22:30.811"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${lnk_unsuccessful_prod}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211021 11:22:30.811" level="INFO">Opening url 'https://prozorro.sale/?status=unsuccessful&amp;offset=10'</msg>
+<status status="PASS" starttime="20211021 11:22:30.811" endtime="20211021 11:22:32.005"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211021 11:22:32.005" endtime="20211021 11:22:32.039"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${value from znaideno_v2}</arg>
+<arg>timeout=20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211021 11:22:32.039" endtime="20211021 11:22:32.071"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${znaideno value from prod}</var>
+<arg>${value from znaideno_v2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211021 11:22:32.087" level="INFO">${znaideno value from prod} = Знайдено: 332 778</msg>
+<status status="PASS" starttime="20211021 11:22:32.071" endtime="20211021 11:22:32.087"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${znaideno value from prod}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211021 11:22:32.088" level="INFO">Знайдено: 332 778</msg>
+<status status="PASS" starttime="20211021 11:22:32.088" endtime="20211021 11:22:32.088"/>
+</kw>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current browser window URL.</doc>
+<msg timestamp="20211021 11:22:32.092" level="INFO">https://prozorro.sale/?status=unsuccessful&amp;offset=10</msg>
+<status status="PASS" starttime="20211021 11:22:32.088" endtime="20211021 11:22:32.092"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${znaideno value from 4242}</arg>
+<arg>${znaideno value from prod}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211021 11:22:32.093" level="FAIL">Знайдено: 331 945 != Знайдено: 332 778</msg>
+<status status="FAIL" starttime="20211021 11:22:32.092" endtime="20211021 11:22:32.093"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT RUN" starttime="20211021 11:22:32.093" endtime="20211021 11:22:32.093"/>
+</kw>
+<doc>Зайти на дев і прод і порівляти результати пошуку по статусу Аукціон не відбувся</doc>
+<tag>пошук по статусам</tag>
+<status status="FAIL" starttime="20211021 11:22:29.735" endtime="20211021 11:22:32.094">Знайдено: 331 945 != Знайдено: 332 778</status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211021 11:22:32.095" endtime="20211021 11:22:32.157"/>
+</kw>
+<status status="FAIL" starttime="20211021 11:22:08.060" endtime="20211021 11:22:32.157"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="9" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">пошук позагальна кількості</stat>
+<stat pass="1" fail="9" skip="0">пошук по статусам</stat>
+</tag>
+<suite>
+<stat pass="2" fail="9" skip="0" id="s1" name="Statusy">Statusy</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
